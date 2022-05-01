@@ -1,3 +1,5 @@
 # JavaScript: The Definitive Guide 6/E
 
-<img src="https://user-images.githubusercontent.com/54442420/166148376-9caa9132-368a-418c-8f5a-2f033ef8ebfb.jpeg" style="width=auto"/>
+<div>
+  <img src="https://user-images.githubusercontent.com/54442420/166148376-9caa9132-368a-418c-8f5a-2f033ef8ebfb.jpeg" style="width=100%"/>
+</div>

@@ -205,6 +205,7 @@ const obj = {
 };
 ```
 <br/>
+
 DOM에 이벤트를 추가하는 addEventListener() 함수에서는 화살표 함수를 주의해서 사용해야합니다.
 ```
 block.addEventListener('click', function () {

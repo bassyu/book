@@ -67,11 +67,6 @@ Vehicle.prototype에 stop() 메서드를 추가하였습니다. 그 결과 `v2`�
 
 생각보다 까다롭습니다. 생성된 객체와 부모 프로토타입의 링크를 깨뜨리지 않게끔 구현해야 하기 때문입니다.
 ```
-function inherit(perent, child) {
-  child.prototype = new perent();
-  child.prototype.constructor = child;
-}
-
 function Vehicle(type) {
   this.type = type;
 }
@@ -86,7 +81,12 @@ function Car(type, speed) {
   Vehicle.apply(this, [type]);
   this.speed = speed;
 }
+function inherit(perent, child) {
+  child.prototype = new perent();
+  child.prototype.constructor = child;
+}
 inherit(Vehicle, Car);
+
 Car.prototype.run = function () {
   console.log(`run ${this.type} ${this.speed}`);
 }

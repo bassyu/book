@@ -65,7 +65,7 @@ Vehicle.prototype에 stop() 메서드를 추가하였습니다. 그 결과 `v2`�
 
 ### 프로토타입을 통한 상속 구현
 
-생각보다 까다롭습니다. 생성된 객체와 부모 프로토타입의 링크를 깨뜨리지 않게씀 구현해야 하기 때문입니다.
+생각보다 까다롭습니다. 생성된 객체와 부모 프로토타입의 링크를 깨뜨리지 않게끔 구현해야 하기 때문입니다.
 ```
 function inherit(perent, child) {
   child.prototype = new perent();

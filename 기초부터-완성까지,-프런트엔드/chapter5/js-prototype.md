@@ -65,6 +65,7 @@ Vehicle.prototype에 stop() 메서드를 추가하였습니다. 그 결과 `v2`�
 
 ### 프로토타입을 통한 상속 구현
 
+생각보다 까다롭습니다. 생성된 객체와 부모 프로토타입의 링크를 깨뜨리지 않게씀 구현해야 하기 때문입니다.
 ```
 function inherit(perent, child) {
   child.prototype = new perent();
@@ -149,7 +150,7 @@ class Car extends Vehicle {
 
 #### private
 
-TC39에서는 이를 보완하기 위해 # prifix를 추가해 pricate 클래스 필드를 선언하는 명세 작업을 진행하고 있습니다.
+TC39에서는 # prifix를 추가해 pricate 클래스 필드를 선언하는 명세 작업을 진행하고 있습니다.
 ```
 class Car extends Vehicle {
   #name;

@@ -95,8 +95,8 @@ const c = new Car('SUV', 100);
 c.stop(); // 'stop SUV'
 c.run(); // 'run SUV 100'
 ```
-Vehicle.prototype 은 type 변수와 stop() 함수를 가집니다.
-Car.prototype 은 Vehicle을 상속 받고 speed 변수와 run() 함수만 추가했습니다.
+Vehicle.prototype 은 type 변수와 stop 함수를 가집니다.
+Car.prototype 은 Vehicle을 상속 받고 speed 변수와 run 함수만 추가했습니다.
 
 ## class
 
@@ -133,7 +133,7 @@ c.run(); // 'run SUV 100'
 ```
 extends 키워드로 특정 클래스를 상속받는 경우에는 **constructor() 생성자 메서드에서 반드시 this를 사용하기 전에 super()를 먼저 호출**해야 합니다.
 
-### 정적 메서트와 private 접근 제한자
+### 정적 메서드와 private 접근 제한자
 
 #### static
 

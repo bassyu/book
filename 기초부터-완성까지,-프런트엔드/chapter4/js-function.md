@@ -83,7 +83,8 @@ const obj = {
 };
 ```
 여기서 중요한 것은 **메서드를 어떻게 호출했느냐에 따라 this 바인딩이 달라진다**는 것입니다.
-```
+
+```javascript
 obj.greeting(); // 'hello javascript'
 
 const greeting = obj.greeting;

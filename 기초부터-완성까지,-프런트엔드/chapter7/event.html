@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<body>
+  <div id="div-id">
+    div area
+    <p id="p-id">
+      p area
+      <a href="https://www.google.com/" id="a-id">a area</a>
+    </p>
+  </div>
+  <button onclick="buttonEventHandler(event)">event obj</button>
+
+  <script>
+    const $div = document.getElementById('div-id');
+    const $p = document.getElementById('p-id');
+    const $a = document.getElementById('a-id');
+
+    $div.addEventListener('click', (e) => {
+      console.log('div event!');
+    })
+    $p.addEventListener('click', (e) => {
+      console.log('p event!');
+    })
+    $a.addEventListener('click', (e) => {
+      console.log('a event!');
+      e.preventDefault();
+    })
+
+    function buttonEventHandler(e) {
+      console.log(e);
+    }
+  </script>
+</body>

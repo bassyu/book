@@ -13,7 +13,7 @@
 - 함수를 반환 값으로 사용할 수 있습니다.
 
 자바스크립트의 함수는 일급 함수입니다.
-```
+```javascript
 function do(callback) {
   callback();
 }
@@ -26,13 +26,13 @@ this는 읽기 전용 값으로 런타임 시 설정할 수 없으며 **함수�
 참고로 전역 실행 컨텍스트에서의 this는 항상 **전역 객체**를 참조합니다.
 브라우저 환경에서 실행하면 window 객체, Node.js 환경에서 실행하면 global 객체가 전역 객체가 됩니다.
 
-```
+```javascript
 this === window; // true
 ```
 
 ### 일반 함수
 엄격모드에서 일반 함수는 this의 값이 undefined 입니다.
-```
+```javascript
 'use strict'
 
 function do() {
@@ -53,7 +53,8 @@ new 키워드를 사용하여 함수를 호출하면 생성자 함수로 동작�
 **생성된 객체는 생성자 함수의 prototype 프로퍼티에 해당하는 객체를 프로토타입으로 설정합니다.** 이 객체는 이후 this를 통해 계속 참조됩니다.
 
 #### 2. 프로퍼티 생성 (함수 내의 코드 실행)
-```
+
+```javascript
 function Vehicle(type) {
   this.type = type;
 }
@@ -63,7 +64,7 @@ function Vehicle(type) {
 
 생성된 객체 즉, this에 바인딩한 객체를 반환합니다. 반환 값을 따로 명시하지 않아도 this에 바인딩한 객체가 반환됩니다. 다만, 다른 값을 반환하면 해당 값이 반환됩니다.
 
-```
+```javascript
 function Veihcle(type) {
   this.type = type;
   return this; // 이 부분을 생략해도 this에 바인딩한 객체가 반환됩니다.
@@ -73,7 +74,7 @@ function Veihcle(type) {
 ### 메서드
 
 자바스크립트에서는 객체의 프로퍼티인 함수를 일반 함수와 구분하여 메서드라고 부르며, this 바인딩도 일반 함수와는 다르게 동작합니다.
-```
+```javascript
 const obj = {
   name: 'javascript',
   greeting() {
@@ -100,7 +101,7 @@ greeting(); // 'hello undefined'
 
 call() 메서드는 첫번째 인자로 'this로 바인딩할 객체'를 지정합니다. 
 그리고 call() 메서드를 통해 호출하는 함수로 인자를 전달할 수도 있습니다.
-```
+```javascript
 const obj = {name: 'Yu'};
 
 function info(age, country) {
@@ -112,7 +113,7 @@ info.call(obj, 20, 'Korea'); // 'name: Yu, age: 20, country: Korea'
 <br/>
 
 apply() 메서드는 call() 메서드와 동일하지만 호출하는 함수에 전달할 인자들을 배열 형태로 전달합니다.
-```
+```javascript
 const obj = {name: 'Yu'};
 
 function info(age, country) {
@@ -126,7 +127,7 @@ info.apply(obj, [20, 'Korea']); // 'name: Yu, age: 20, country: Korea'
 bind() 메서드는 함수의 **this 바인딩을 영구적으로 변경합니다.**
 그리고 this를 바인딩하여 함수를 호출하는 것이 아니라 **새로운 함수를 반환합니다.**
 
-```
+```javascript
 const obj1 = { name: 'Yu' };
 const obj2 = { name: 'Lee' };
 
@@ -153,7 +154,7 @@ bind() 함수는 this뿐만 아니라 함수에 전달할 인자도 고정시킬
 함수 호출에 따라 동적으로 this를 바인딩하는 것이 아니라 함수를 어디에 선언하는지에 따라 this의 값이 결정됩니다.
 **화살표 함수의 this는 화살표 함수를 둘러싸고 있는 렉시컬 스코프에서 this의 값을 받아 사용합니다.**
 이러한 this를 **렉시컬 this**라고 하며 이 값은 변경되지 않습니다.
-```
+```javascript
 const obj = {
   name: 'javascript',
   greeting: () => {
@@ -169,7 +170,7 @@ obj.greeting(); // 'hello undefined'
 
 화살표 함수는 this를 따로 바인딩하지 않고 변경되지 않는 렉시컬 this를 갖습니다.
 이러한 특징 때문에 화살표 함수의 this는 call(), apply(), bind() 함수를 사용하여 변경할 수 없습니다.
-```
+```javascript
 const obj = { name: 'Yu' };
 const greeting = () => {
   return `hello ${this.name}`;
@@ -182,7 +183,7 @@ greeting.call(obj); // 'hello undefined'
 생성자 함수는 객체를 생성하여 this에 바인딩하지만, 화살표 함수는 이러한 동작을 할 수 없기 때문입니다.
 
 화살표 함수는 정적인 렉시컬 this를 사용하기 때문에 기존의 동적인 this 바인딩의 혼잡함에서 벗어나 단순하게 사용할 수 있습니다.
-```
+```javascript
 const obj = {
   name: 'javascript',
   greeting() {
@@ -194,7 +195,7 @@ const obj = {
 ```
 위 예제는 timer() 함수가 setTimeout() 함수 내에서 실행되므로 this가 전역 객체로 바인딩됩니다. 그래서 이후에 bind() 함수를 사용해서 this를 obj로 바인딩 합니다.
 화살표 함수를 사용하면 간결하게 변경할 수 있습니다.
-```
+```javascript
 const obj = {
   name: 'javascript',
   greeting() {
@@ -207,7 +208,7 @@ const obj = {
 <br/>
 
 DOM에 이벤트를 추가하는 addEventListener() 함수에서는 화살표 함수를 주의해서 사용해야합니다.
-```
+```javascript
 block.addEventListener('click', function () {
   this // block 객체
 })

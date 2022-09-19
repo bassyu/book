@@ -138,8 +138,8 @@ function info(age, country) {
 
 const bound = info.bind(obj1, 20); // this는 obj1, age는 20으로 고정
 
-bound('Korea'); // 'name: Yu, age: 20, country: Korea'
-bound.apply(obj2, [19, 'Japan']); // 'name: Yu, age: 20, country: Japan'
+bound('Korea');                 // 'name: Yu, age: 20, country: Korea'
+bound.call(obj2, 18, 'Japan');  // 'name: Yu, age: 20, country: Japan'
 ```
 bound() 함수는 this 값이 영구적으로 고정되었기 때문에 this의 값이 obj1로 고정됩니다. 
 bind() 함수는 this뿐만 아니라 함수에 전달할 인자도 고정시킬 수 있습니다.
